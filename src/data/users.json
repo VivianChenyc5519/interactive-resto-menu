@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "pwd": "password123",
+        "credit": 15,
+        "role": "client",
+        "favorites": [
+            1,
+            2
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Jane Smith",
+        "pwd": "securepass456",
+        "credit": 20,  
+        "role": "chef"
+    }
+]

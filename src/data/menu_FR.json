@@ -1,0 +1,39 @@
+[
+    {
+        "id": 2,
+        "name": "Saumon grillé",
+        "image": "grilled_salmon.jpg",
+        "ingredients": [
+            "saumon",
+            "citron",
+            "huile d'olive",
+            "herbes"
+        ],
+        "allergens": [
+            "fish"
+        ],
+        "footprint": 4.2,
+        "category": "main",
+        "price": 18.5,
+        "vegetarian": false
+    },
+    {
+        "id": 3,
+        "name": "Salade César",
+        "image": "caesar_salad.jpg",
+        "ingredients": [
+            "laitue romaine",
+            "croûtons",
+            "parmesan",
+            "sauce césar"
+        ],
+        "allergens": [
+            "milk",
+            "gluten"
+        ],
+        "footprint": 1.8,
+        "category": "dessert",
+        "price": 10,
+        "vegetarian": true
+    }
+]

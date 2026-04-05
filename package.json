@@ -1,0 +1,26 @@
+{
+  "name": "interactive-resto-menu",
+  "version": "1.0.0",
+  "description": "This is the final project for IG05/06 taught at Telecom Paris.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivianChenyc5519/interactive-resto-menu.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/VivianChenyc5519/interactive-resto-menu/issues"
+  },
+  "homepage": "https://github.com/VivianChenyc5519/interactive-resto-menu#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}

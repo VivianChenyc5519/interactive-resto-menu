@@ -1,0 +1,96 @@
+const fs = require("fs/promises");
+const path = require("path");
+const codes = require("../utils/responseCodes");
+const { write } = require("fs");
+
+const filePathFR = path.join(__dirname, "../data/menu_FR.json");
+const filePathEN = path.join(__dirname, "../data/menu_EN.json");
+
+async function readMenuFR() {
+    try {
+        const data = await fs.readFile(filePathFR, "utf8");
+        const menus = JSON.parse(data);
+        return menus;
+    } catch (err) {
+        err.status = codes.INTERNAL_SERVER_ERROR;
+        throw err;
+    }
+}
+async function readMenuEN() {
+    try {
+        const data = await fs.readFile(filePathEN, "utf8");
+        const menus = JSON.parse(data);
+        return menus;
+    } catch (err) {
+        err.status = codes.INTERNAL_SERVER_ERROR;
+        throw err;
+    }
+}
+
+async function writeMenuFR(menuJSON) {
+    try {
+        const menu = JSON.stringify(menuJSON);
+        await fs.writeFile(filePathFR, menu);
+        console.log("File written successfully");
+    } catch (err) {
+        err.status = codes.INTERNAL_SERVER_ERROR;
+        throw err;
+    }
+}
+
+async function writeMenuEN(menuJSON) {
+    try {
+        const menu = JSON.stringify(menuJSON);
+        await fs.writeFile(filePathEN, menu);
+        console.log("File written successfully");
+    } catch (err) {
+        err.status = codes.INTERNAL_SERVER_ERROR;
+        throw err;
+    }
+}
+
+exports.findByCategoryFR = async (category) => {
+    const menus = await readMenuFR();
+    return menus.find(menu => menu.category.toLowerCase() === category);
+}
+
+exports.findByCategoryEN = async (category) => {
+    const menus = await readMenuEN();
+    return menus.find(menu => menu.category.toLowerCase() === category);
+}
+
+exports.findAllEN = async () => {
+    const allMenus = await readMenuEN();
+    return allMenus;
+}
+
+exports.findAllFR = async () => {
+    const allMenus = await readMenuFR();
+    return allMenus;
+}
+
+exports.deleteMenuFR = async (name) => {
+    name = name.toLowerCase();
+    const menus = await readMenuFR();
+    const prevLength = menus.length;
+    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name);
+    if (prevLength === updatedMenu.length) {
+        console.log("Cannot find the item");
+        return null;
+    };
+    await writeMenuFR(updatedMenu);
+    return true;
+}
+
+exports.deleteMenuEN = async (name) => {
+    name = name.toLowerCase();
+    const menus = await readMenuEN();
+    const prevLength = menus.length;
+    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name);
+    if (prevLength === updatedMenu.length) {
+        console.log("Cannot find the item");
+        return null;
+    };
+    await writeMenuEN(updatedMenu);
+    return true;
+}

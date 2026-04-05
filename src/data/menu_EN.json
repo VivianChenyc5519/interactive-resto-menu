@@ -1,0 +1,39 @@
+[
+    {
+        "id": 2,
+        "name": "Grilled Salmon",
+        "image": "grilled_salmon.jpg",
+        "ingredients": [
+            "salmon",
+            "lemon",
+            "olive oil",
+            "herbs"
+        ],
+        "allergens": [
+            "fish"
+        ],
+        "footprint": 4.2,
+        "category": "main",
+        "price": 18.5,
+        "vegetarian": false
+    },
+    {
+        "id": 3,
+        "name": "Caesar Salad",
+        "image": "caesar_salad.jpg",
+        "ingredients": [
+            "romaine lettuce",
+            "croutons",
+            "parmesan cheese",
+            "caesar dressing"
+        ],
+        "allergens": [
+            "milk",
+            "gluten"
+        ],
+        "footprint": 1.8,
+        "category": "salad",
+        "price": 10,
+        "vegetarian": true
+    }
+]
