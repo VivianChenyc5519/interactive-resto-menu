@@ -95,6 +95,13 @@ body{
     filter: drop-shadow(0px 11px 11px #7a7979 );
 }
 
+.item-photo img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
 #cart{
     display: flex;
     position: fixed;
@@ -127,9 +134,14 @@ body{
 }
 
 #item-large-img{
-    height: 500px;
+    display: flex;
+    align-items: center;
     width: 300px;
-    background-color: #A09A9A;
+    margin:50px;
+    
+}
+
+#item-large-img img{
     border-radius: 25px;
     filter: drop-shadow(0px 11px 11px #7a7979 );
 }
