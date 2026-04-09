@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Wan - Item </title>
+        <link rel="stylesheet" href="styles.css">
+        <script>
+            function plus(){
+                let val= Number(document.getElementById('quantity').value);
+                document.getElementById('quantity').value= val + 1
+            }
+            function minus(){
+                let val= Number(document.getElementById('quantity').value);
+                if (val>1){
+                    document.getElementById('quantity').value= val - 1
+                }
+            }
+        </script>
+    </head>
+    <body style="display: flex; flex-direction: column;">
+    
+        <div id="top-bar"> 
+                <div style="display: flex;">
+                    <button class="icon-btn">
+                        <img src="ressource/return-button.png" height="75%" alt="Menu">
+                    </button>
+                    <a class="icon-btn" href="index.html">
+                        <img src="ressource/home.png" height="75%" alt="Menu">
+                    </a>
+                </div>
+                    <button class="icon-btn">
+                        Welcome, XXX 
+                    <img src="ressource/profile.png" height="75%" alt="Menu">
+                    </button>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; padding:10px">
+                <div style="display: flex; flex-direction: column; align-items: center;" >
+                    <div id="item-large-img">
+                    </div>
+                    <p><strong>Salad</strong></p>
+                </div>
+
+                <div style="margin:50px">
+                    <p><strong>Ingredients:</strong></p>
+                    <p id="ingredients">Spinach, Lettuce</p>
+                    <p><strong>Allergens:</strong></p>
+                    <p id="allergens">Wheat, Peanut</p>
+                    <p><strong>Carbon Footprint:</strong></p>
+                    <p id="carbon-footprint">Spinach, Lettuce</p>
+                <form id="add-to-cart">
+                    <div style="display: flex;">
+                    <button type="button" onclick="minus()">-</button>
+                    <input type="number" readonly id="quantity" value=1 style="width: 50px; height: 30px;">
+                    <button type="button" onclick="plus()">+</button>
+                    </div>
+                    
+                    <input type="submit" value="Add" style="width: 100px; background-color: #747272;margin: 10px;">
+                </form>
+                </div>
+                
+                
+            </div>
+
+    </body>
+</html>
