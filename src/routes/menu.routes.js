@@ -8,5 +8,10 @@ menuRouter.get('/fr/all', menuController.displayAllFR);
 menuRouter.get('/en/all', menuController.displayAllEN);
 menuRouter.delete('/fr/delete', menuController.deleteMenuFR);
 menuRouter.delete('/en/delete', menuController.deleteMenuEN);
+menuRouter.post('/fr/add', menuController.addMenuFR);
+menuRouter.post('/en/add', menuController.addMenuEN);
+menuRouter.get('/fr/name/:name', menuController.getDishFR);
+menuRouter.get('/en/name/:name', menuController.getDishEN);
+
 
 module.exports = menuRouter;

@@ -46,9 +46,15 @@ exports.findAllFR = async () => {
 }
 
 exports.deleteMenuFR = async (name) => {
-    await menuRepository.deleteMenuFR(name);
-    return {
-        status: codes.OK
+    const del = await menuRepository.deleteMenuFR(name);
+    if (del) {
+        return {
+            status: codes.OK
+        }
+    } else {
+        const err = new Error("Dish not found !");
+        err.status = codes.NOT_FOUND;
+        throw err;
     }
 }
 
@@ -59,9 +65,78 @@ exports.deleteMenuEN = async (name) => {
             status: codes.OK
         }
     } else {
-        return  {
-            status: codes.NOT_FOUND
-        }
+        const err = new Error("Dish not found !");
+        err.status = codes.NOT_FOUND;
+        throw err;
     }
+}
 
+exports.addMenuFR = async (data) => {
+    const requireFields = await menuRepository.getFields();
+    const missing = requireFields.filter(
+        field => data[field] === undefined || data[field] === null
+    );
+    if (missing.length > 0) {
+        const err = new Error(`Missing fields: ${missing.join(",")}`);
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    if (!Array.isArray(data.ingredients)) {
+        const err = new Error("Ingredients must be an array !");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    if (typeof data.price !== "number") {
+        const err = new Error("Price must be a number");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    await menuRepository.addMenuFR(data);
+    return {
+        status: codes.OK
+    }
+}
+
+exports.addMenuEN = async (data) => {
+    const requireFields = await menuRepository.getFields();
+    const missing = requireFields.filter(
+        field => data[field] === undefined || data[field] === null
+    );
+    if (missing.length > 0) {
+        const err = new Error(`Missing fields: ${missing.join(",")}`);
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    if (!Array.isArray(data.ingredients)) {
+        const err = new Error("Ingredients must be an array !");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    if (typeof data.price !== "number") {
+        const err = new Error("Price must be a number");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    await menuRepository.addMenuEN(data);
+    return {
+        status: codes.OK
+    }
+}
+
+exports.getDishFR = async (name) => {
+    if (!name) {
+        const err = new Error("Name cannot be empty !");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    const dish = await menuRepository.getDishFR(name);
+    if (!dish) {
+        const err = new Error(`Dish ${name} not found !`);
+        err.status = codes.NOT_FOUND;
+        throw err;
+    }
+    return {
+        status: codes.OK,
+        dish: dish
+    }
 }

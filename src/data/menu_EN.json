@@ -1,6 +1,5 @@
 [
     {
-        "id": 2,
         "name": "Grilled Salmon",
         "image": "grilled_salmon.jpg",
         "ingredients": [
@@ -18,7 +17,6 @@
         "vegetarian": false
     },
     {
-        "id": 3,
         "name": "Caesar Salad",
         "image": "caesar_salad.jpg",
         "ingredients": [
@@ -35,5 +33,24 @@
         "category": "salad",
         "price": 10,
         "vegetarian": true
+    },
+    {
+        "name": "Quiche Lorraine",
+        "image": "quiche_lorraine.jpg",
+        "ingredients": [
+            "eggs",
+            "cream",
+            "bacon",
+            "pastry"
+        ],
+        "allergens": [
+            "egg",
+            "milk",
+            "gluten"
+        ],
+        "footprint": 3.4,
+        "category": "starter",
+        "price": 8.5,
+        "vegetarian": false
     }
 ]

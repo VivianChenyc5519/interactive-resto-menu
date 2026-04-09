@@ -51,12 +51,12 @@ async function writeMenuEN(menuJSON) {
 
 exports.findByCategoryFR = async (category) => {
     const menus = await readMenuFR();
-    return menus.find(menu => menu.category.toLowerCase() === category);
+    return menus.find(menu => menu.category.toLowerCase() === category.toLowerCase());
 }
 
 exports.findByCategoryEN = async (category) => {
     const menus = await readMenuEN();
-    return menus.find(menu => menu.category.toLowerCase() === category);
+    return menus.find(menu => menu.category.toLowerCase() === category.toLowerCase());
 }
 
 exports.findAllEN = async () => {
@@ -70,10 +70,9 @@ exports.findAllFR = async () => {
 }
 
 exports.deleteMenuFR = async (name) => {
-    name = name.toLowerCase();
     const menus = await readMenuFR();
     const prevLength = menus.length;
-    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name);
+    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name.toLowerCase());
     if (prevLength === updatedMenu.length) {
         console.log("Cannot find the item");
         return null;
@@ -83,14 +82,41 @@ exports.deleteMenuFR = async (name) => {
 }
 
 exports.deleteMenuEN = async (name) => {
-    name = name.toLowerCase();
     const menus = await readMenuEN();
     const prevLength = menus.length;
-    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name);
+    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name.toLowerCase());
     if (prevLength === updatedMenu.length) {
         console.log("Cannot find the item");
         return null;
     };
     await writeMenuEN(updatedMenu);
     return true;
+}
+
+exports.getFields = async() => {
+    const menus = await readMenuEN();
+    if (!menus) {
+        return [];
+    }
+    return Object.keys(menus[0]);
+}
+
+exports.addMenuFR = async(data) => {
+    const menus = await readMenuFR();
+    menus.push(data);
+    await writeMenuFR(menus);
+    return true;
+}
+
+exports.addMenuEN = async(data) => {
+    const menus = await readMenuEN();
+    menus.push(data);
+    await writeMenuEN(menus);
+    return true;
+}
+
+exports.getDishFR = async(name) => {
+    const menus = await readMenuFR();
+    const dish = menus.find(menu => name.toLowerCase() === menu.name.toLowerCase());
+    return dish;
 }

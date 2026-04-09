@@ -20,7 +20,7 @@ exports.displayByCategoryEN = async (req, res, next) => {
     }
 }
 
-exports.displayAllFR = async(req, res, next) => {
+exports.displayAllFR = async (req, res, next) => {
     try {
         const allMenus = await menuService.findAllFR();
         res.json(allMenus);
@@ -29,7 +29,7 @@ exports.displayAllFR = async(req, res, next) => {
     }
 }
 
-exports.displayAllEN = async(req, res, next) => {
+exports.displayAllEN = async (req, res, next) => {
     try {
         const allMenus = await menuService.findAllEN();
         res.json(allMenus);
@@ -38,7 +38,7 @@ exports.displayAllEN = async(req, res, next) => {
     }
 }
 
-exports.deleteMenuFR = async(req, res, next) => {
+exports.deleteMenuFR = async (req, res, next) => {
     try {
         const name = req.body.name;
         const response = await menuService.deleteMenuFR(name);
@@ -48,10 +48,37 @@ exports.deleteMenuFR = async(req, res, next) => {
     }
 }
 
-exports.deleteMenuEN = async(req, res, next) => {
+exports.deleteMenuEN = async (req, res, next) => {
     try {
         const name = req.body.name;
         const response = await menuService.deleteMenuEN(name);
+        res.json(response);
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.addMenuFR = async (req, res, next) => {
+    try {
+        const response = await menuService.addMenuFR(req.body);
+        res.json(response);
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.addMenuEN = async (req, res, next) => {
+    try {
+        const response = await menuService.addMenuEN(req.body);
+        res.json(response);
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.getDishFR = async (req, res, next) => {
+    try {
+        const response = await menuService.getDishFR(req.params.name);
         res.json(response);
     } catch (err) {
         next(err);

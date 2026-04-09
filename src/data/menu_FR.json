@@ -1,6 +1,5 @@
 [
     {
-        "id": 2,
         "name": "Saumon grillé",
         "image": "grilled_salmon.jpg",
         "ingredients": [
@@ -18,7 +17,6 @@
         "vegetarian": false
     },
     {
-        "id": 3,
         "name": "Salade César",
         "image": "caesar_salad.jpg",
         "ingredients": [
@@ -35,5 +33,24 @@
         "category": "dessert",
         "price": 10,
         "vegetarian": true
+    },
+    {
+        "name": "Quiche lorraine",
+        "image": "quiche_lorraine.jpg",
+        "ingredients": [
+            "œufs",
+            "crème",
+            "lardons",
+            "pâte"
+        ],
+        "allergens": [
+            "egg",
+            "milk",
+            "gluten"
+        ],
+        "footprint": 3.4,
+        "category": "starter",
+        "price": 8.5,
+        "vegetarian": false
     }
 ]
