@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_user.css">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="main_window">
+        <div id="header">
+            <div id="menu_block">
+                <button>back</button>
+                <button>home</button>
+            </div>
+            <p id ="welcome_text"> Welcome back </p>
+
+        </div>
+        <div id ="user_block">
+
+            <div id="user_info_block">
+
+            </div>
+
+            <table id="last_meals_block">
+            </table>
+
+        </div>
+
+        <button id="language_button"><img src="OIP.jpeg"/></button>
+        <div></div>
+    </div>
+
+</body>
+
+<script>
+    const user = "BREAD"
+    const status = "STUDENT"
+    const id = "01563908"
+    const credits = 15
+    const lastMeals = ["Rice and fish | Carrot cake | Iced tea", "Steak and fries", "Water Bottle", "Mashes potatoes", "Bread"]
+
+    const welcomeText = document.getElementById("welcome_text")
+    const lastMealsBlock = document.getElementById("last_meals_block")
+    const userInfoBlock = document.getElementById("user_info_block")
+
+    welcomeText.textContent = "Welcome back " + user;
+
+    function displayLastMeals(){
+        var i = 0;
+        var currentLine;
+        while(i < 6 && i < lastMeals.length){
+
+            if(i%3 === 0) {
+                currentLine = document.createElement("tr")
+                lastMealsBlock.appendChild(currentLine)
+            }
+            var mealItem = document.createElement("th")
+            mealItem.textContent = lastMeals[i]
+            currentLine.appendChild(mealItem)
+            i++
+        }
+    }
+
+    function displayUserInfo(){
+        const nameElt = document.createElement("h3")
+        nameElt.textContent = "User : " + user
+        userInfoBlock.appendChild(nameElt)
+
+        const statusElt = document.createElement("h3")
+        nameElt.textContent = "Status : " + status
+        userInfoBlock.appendChild(statusElt)
+
+        const idElt = document.createElement("h3")
+        nameElt.textContent = "Id : " + id
+        userInfoBlock.appendChild(idElt)
+
+        const creditsElt = document.createElement("h3")
+        nameElt.textContent = "credits : " + credits.toString() + " euros"
+        userInfoBlock.appendChild(creditsElt)
+
+    }
+
+    displayLastMeals()
+    displayUserInfo()
+</script>
+
+</html>
