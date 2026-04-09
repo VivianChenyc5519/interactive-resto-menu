@@ -20,6 +20,18 @@
 
             <div id="user_info_block">
 
+                <div id="user_image"></div>
+
+                <div id="user_info">
+                    <h3> User : XXX </h3>
+                    <h3> Status : XXX </h3>
+                    <h3> Id : XXX </h3>
+                        <div id="credits">
+                            <h3> Credits : XXX </h3>
+                            <button>Add money</button>
+                        </div>
+                </div>
+
             </div>
 
             <table id="last_meals_block">
@@ -56,7 +68,13 @@
                 lastMealsBlock.appendChild(currentLine)
             }
             var mealItem = document.createElement("th")
-            mealItem.textContent = lastMeals[i]
+            var mealItemButton = document.createElement("button")
+            var mealItemDesc = document.createElement("p")
+            mealItemButton.classList.add("meal_item_button")
+            mealItem.appendChild(mealItemButton)
+            mealItemDesc.textContent = lastMeals[i]
+            mealItem.appendChild(mealItemDesc)
+
             currentLine.appendChild(mealItem)
             i++
         }
@@ -65,24 +83,23 @@
     function displayUserInfo(){
         const nameElt = document.createElement("h3")
         nameElt.textContent = "User : " + user
-        userInfoBlock.appendChild(nameElt)
+        userInfoBlock.appendChild(nameElt.cloneNode(true))
 
         const statusElt = document.createElement("h3")
         nameElt.textContent = "Status : " + status
-        userInfoBlock.appendChild(statusElt)
+        userInfoBlock.appendChild(statusElt.cloneNode(true))
 
         const idElt = document.createElement("h3")
         nameElt.textContent = "Id : " + id
-        userInfoBlock.appendChild(idElt)
+        userInfoBlock.appendChild(idElt.cloneNode(true))
 
         const creditsElt = document.createElement("h3")
         nameElt.textContent = "credits : " + credits.toString() + " euros"
-        userInfoBlock.appendChild(creditsElt)
+        userInfoBlock.appendChild(creditsElt.cloneNode(true))
 
     }
 
     displayLastMeals()
-    displayUserInfo()
 </script>
 
 </html>
