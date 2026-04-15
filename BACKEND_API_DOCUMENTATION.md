@@ -195,8 +195,7 @@
 ### 10. Get English dish by name
 - Method: `GET`
 - URL: `/menu/en/name/:name`
-- Example: `/menu/en/name/Grilled%20Salmon`
-- Note: This route exists in the router, but the backend controller function for English dish lookup is currently not implemented, so it will fail until fixed.
+- Example: `/menu/en/name/Grilled%20Salmon` (space must be encoded)
 
 ---
 
