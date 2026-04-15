@@ -91,7 +91,13 @@ exports.addMenuFR = async (data) => {
         err.status = codes.BAD_REQUEST;
         throw err;
     }
-    await menuRepository.addMenuFR(data);
+    let success = await menuRepository.addMenuFR(data);
+    if (!success) {
+        const err = new Error("Item already exists in the menu !");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+
+    }
     return {
         status: codes.OK
     }
@@ -117,10 +123,17 @@ exports.addMenuEN = async (data) => {
         err.status = codes.BAD_REQUEST;
         throw err;
     }
-    await menuRepository.addMenuEN(data);
+    let success = await menuRepository.addMenuEN(data);
+    if (!success) {
+        const err = new Error("Item already exists in the menu !");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+
+    }
     return {
         status: codes.OK
     }
+
 }
 
 exports.getDishFR = async (name) => {
@@ -129,7 +142,25 @@ exports.getDishFR = async (name) => {
         err.status = codes.BAD_REQUEST;
         throw err;
     }
-    const dish = await menuRepository.getDishFR(name);
+    const dish = await menuRepository.getDishByNameFR(name);
+    if (!dish) {
+        const err = new Error(`Dish ${name} not found !`);
+        err.status = codes.NOT_FOUND;
+        throw err;
+    }
+    return {
+        status: codes.OK,
+        dish: dish
+    }
+}
+
+exports.getDishEN = async (name) => {
+    if (!name) {
+        const err = new Error("Name cannot be empty !");
+        err.status = codes.BAD_REQUEST;
+        throw err;
+    }
+    const dish = await menuRepository.getDishByNameEN(name);
     if (!dish) {
         const err = new Error(`Dish ${name} not found !`);
         err.status = codes.NOT_FOUND;

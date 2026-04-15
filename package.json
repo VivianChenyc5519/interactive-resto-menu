@@ -2,10 +2,10 @@
   "name": "interactive-resto-menu",
   "version": "1.0.0",
   "description": "This is the final project for IG05/06 taught at Telecom Paris.",
-  "main": "src/app.js",
+  "main": "server/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
   },
   "repository": {
     "type": "git",

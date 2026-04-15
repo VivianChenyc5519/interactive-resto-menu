@@ -1,7 +1,7 @@
 [
     {
         "name": "Saumon grillé",
-        "image": "grilled_salmon.jpg",
+        "image": "/data/images/spaghetti.jpg",
         "ingredients": [
             "saumon",
             "citron",
@@ -18,7 +18,7 @@
     },
     {
         "name": "Salade César",
-        "image": "caesar_salad.jpg",
+        "image": "/data/images/spaghetti.jpg",
         "ingredients": [
             "laitue romaine",
             "croûtons",
@@ -36,7 +36,7 @@
     },
     {
         "name": "Quiche lorraine",
-        "image": "quiche_lorraine.jpg",
+        "image": "/data/images/spaghetti.jpg",
         "ingredients": [
             "œufs",
             "crème",
@@ -49,7 +49,7 @@
             "gluten"
         ],
         "footprint": 3.4,
-        "category": "starter",
+        "category": "dessert",
         "price": 8.5,
         "vegetarian": false
     }

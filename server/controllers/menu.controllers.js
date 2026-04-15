@@ -84,3 +84,12 @@ exports.getDishFR = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.getDishEN = async (req, res, next) => {
+    try {
+        const response = await menuService.getDishEN(req.params.name);
+        res.json(response);
+    } catch (err) {
+        next(err);
+    }
+}
