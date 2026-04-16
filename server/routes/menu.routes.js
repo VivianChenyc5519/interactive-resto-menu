@@ -1,7 +1,9 @@
 const express = require("express");
 const menuRouter = express.Router();
 const menuController = require("../controllers/menu.controllers");
+const requireAuth = require("../middleware/requireAuth");
 
+menuRouter.use(requireAuth);
 menuRouter.get('/fr/category/:category', menuController.displayByCategoryFR);
 menuRouter.get('/en/category/:category', menuController.displayByCategoryEN);
 menuRouter.get('/fr/all', menuController.displayAllFR);

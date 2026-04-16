@@ -220,7 +220,20 @@
 - Errors:
   - `400` if `username` or `pwd` is missing
   - `401` if credentials are invalid
-- Note: There is no token issued; the endpoint only verifies username and password.
+- Note: We use server-side sessions (via cookies) to maintain user session. The backend creates a session and stores the user identity, then sends a session cookie to the browser.
+- Examples for frontend: 
+```
+await fetch("/user/authenticate", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    username: "user1",
+    pwd: "password123"
+  })
+});
+```
 
 ---
 
@@ -230,6 +243,11 @@
 - Add/delete endpoints expect JSON request bodies.
 - `GET` endpoints use route parameters for category and name.
 - The backend reads and writes JSON files in `server/data/`.
+- John Doe - password123, Jane Smith - secure456
 
 ## Updates to come
 - Add token authorization for user authentication and maintain a cookie for each user session
+- Add authorization
+
+## Backend notes for backend
+- Why cookie and not token ? Our application is a classic web app with a single frontend and backend operating on the same origin. Using cookies with server-side sessions simplifies the architecture: the browser automatically stores and sends the session cookie, so the frontend does not need to manage authentication state manually (e.g., storing tokens or attaching headers). This reduces implementation complexity and limits exposure to certain risks, since the session identifier can be marked as HttpOnly and is not accessible to client-side JavaScript. Additionally, session-based authentication makes features like logout and role-based access control straightforward, as the server retains full control over session data and can invalidate it at any time. Given that our system does not need to support multiple external clients or a distributed, stateless architecture, cookie-based sessions provide a simpler and more appropriate solution than token-based authentication.

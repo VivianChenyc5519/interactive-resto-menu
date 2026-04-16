@@ -20,3 +20,8 @@ exports.getByName = async (username) => {
     const users = await readUsers();
     return users.find(user => user.name === username);
 }
+
+exports.getByID = async(userID) => {
+    const users = await readUsers();
+    return users.find(user => user.id === userID);
+}

@@ -1,12 +1,25 @@
 const express = require("express");
 const menuRouter = require("./routes/menu.routes");
 const userRouter = require("./routes/user.routes");
+const session = require("express-session");
 
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+// use session
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    maxAge: 60000
+  }
+}));
 app.use('/menu', menuRouter);
 app.use('/user',userRouter);
 

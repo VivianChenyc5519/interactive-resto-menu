@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "John Doe",
-        "pwd": "password123",
+        "pwd": "$2a$12$RlPiymvps5jfReq21n7pl.iGgZU8oExP/X3BoQHCx8Uab4Hziftjm", 
         "credit": 15,
         "role": "client",
         "favorites": [
@@ -13,8 +13,11 @@
     {
         "id": 2,
         "name": "Jane Smith",
-        "pwd": "securepass456",
+        "pwd": "securepas$2a$12$tZNgSNNPgcUCfsolLMx4uehY9YghBRz9hdAT35codMJX2Jpzu.N4W",
         "credit": 20,  
-        "role": "chef"
+        "role": "chef",
+        "favorites": [
+            1
+        ]
     }
 ]
