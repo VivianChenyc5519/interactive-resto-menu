@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_user.css">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="main_window">
+        <div id="header">
+            <div id="menu_block">
+                <button><img src="resource/return-button.png"></button>
+                <a href="index.html"><button><img src="resource/home.png"></button></a>
+            </div>
+            <button id ="welcome_text"> Welcome back </button>
+
+        </div>
+        <div id ="user_block">
+
+            <div id="user_info_block">
+
+                <div id="user_image"></div>
+
+                <div id="user_info">
+                    <h3> User : {{name}} </h3>
+                    <h3> Status : {{status}} </h3>
+                    <h3> Id : {{id}} </h3>
+                        <div id="credits">
+                            <h3> Credits : {{credits}} </h3>
+                            <button>Add money</button>
+                        </div>
+                </div>
+
+            </div>
+
+            <div id="last_meals_block">
+                {{#each favorites}}
+                    <h1>{{meal}}</h1>
+                {{/each}}
+            </div>
+
+        </div>
+
+        <button id="language_button"><img src="OIP.jpeg"/></button>
+        <div></div>
+
+        <div id="cart_block">cart</div>
+
+    </div>
+
+</body>
+
+<script>
+    const user = "BREAD"
+    const status = "STUDENT"
+    const id = "01563908"
+    const credits = 15
+    const lastMeals = ["Salad", "Salad", "Salad", "Salad", "Salad"]
+
+    const welcomeText = document.getElementById("welcome_text")
+    const lastMealsBlock = document.getElementById("last_meals_block")
+    const userInfoBlock = document.getElementById("user_info_block")
+
+    welcomeText.textContent = "Welcome, " + user;
+
+    function displayLastMeals(){
+        var i = 0;
+        var currentLine;
+        while(i < 6 && i < lastMeals.length){
+
+            if(i%3 === 0) {
+                currentLine = document.createElement("tr")
+                lastMealsBlock.appendChild(currentLine)
+            }
+            var mealItem = document.createElement("th")
+            var mealItemLink = document.createElement("a")
+            var mealItemButton = document.createElement("button")
+            var mealItemDesc = document.createElement("p")
+
+            mealItemLink.href = "item.html"
+            mealItemButton.classList.add("meal_item_button")
+            mealItemLink.appendChild(mealItemButton)
+            mealItem.appendChild(mealItemLink)
+            mealItemDesc.textContent = lastMeals[i]
+            mealItem.appendChild(mealItemDesc)
+            currentLine.appendChild(mealItem)
+            i++
+        }
+    }
+
+    displayLastMeals()
+</script>
+
+</html>

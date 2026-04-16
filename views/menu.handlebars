@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title> Wan - Order </title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div id="nav-menu">
+            <a class="icon-btn" href="index.html">
+                <img src="resource/home.png" height="75%" alt="Menu">
+            </a>
+            <div class="nav-item"> Appetizers </div>
+            <div class="nav-item"> Main courses </div>
+            <div class="nav-item"> Desserts </div>
+            <div class="nav-item"> Fruits </div>
+            <div class="nav-item"> Cheese </div>
+            <div class="nav-item"> All </div>
+            <a href="index-french.html">
+            <button class="icon-btn">
+                <img src="resource/english.png" style="filter: drop-shadow(0px 11px 11px #7a7979 );"  height="75%" alt="Menu">
+            </button>
+            </a>
+        </div>
+
+        <div id="items">
+            <div id="top-bar"> 
+                <button class="icon-btn">
+                    <img src="resource/filter.png" height="75%" alt="Menu">
+                </button>
+                <a href="user_page.handlebars">
+                    <button class="icon-btn">
+                        Welcome, XXX 
+                    <img src="resource/profile.png" height="75%" alt="Menu">
+                    </button>
+                    </a>
+            </div>
+
+
+            {{#each items}}
+            <a class="item" href="/en/name/{{name}}.html">
+            <div class="item-photo">
+                <img src="{{image}}" alt="{{name}}">
+            </div>
+            <p>
+                {{name}} <br>
+                {{price}}€
+            </p>
+            </a>
+            {{/each}}
+            
+            
+        </div>
+
+        <div id="cart">
+                    <img src="resource/cart.png" height="50%" alt="Menu">
+                    Cart 
+                    <div id="cart-nbr">
+            </div>
+        </div>
+    </body>
+</html>
