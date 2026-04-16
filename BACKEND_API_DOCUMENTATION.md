@@ -248,6 +248,8 @@ await fetch("/user/authenticate", {
 ## Updates to come
 - Add token authorization for user authentication and maintain a cookie for each user session
 - Add authorization
+- If items favorited are no longer in the menu ?
+- We currently use names to index the menu items -> should switch to using index in databases
 
 ## Backend notes for backend
 - Why cookie and not token ? Our application is a classic web app with a single frontend and backend operating on the same origin. Using cookies with server-side sessions simplifies the architecture: the browser automatically stores and sends the session cookie, so the frontend does not need to manage authentication state manually (e.g., storing tokens or attaching headers). This reduces implementation complexity and limits exposure to certain risks, since the session identifier can be marked as HttpOnly and is not accessible to client-side JavaScript. Additionally, session-based authentication makes features like logout and role-based access control straightforward, as the server retains full control over session data and can invalidate it at any time. Given that our system does not need to support multiple external clients or a distributed, stateless architecture, cookie-based sessions provide a simpler and more appropriate solution than token-based authentication.

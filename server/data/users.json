@@ -6,8 +6,8 @@
         "credit": 15,
         "role": "client",
         "favorites": [
-            1,
-            2
+            "Grilled Salmon",
+            "Caesar Salad"
         ]
     },
     {
@@ -17,7 +17,7 @@
         "credit": 20,  
         "role": "chef",
         "favorites": [
-            1
+            "Caesar Salad"
         ]
     }
 ]
