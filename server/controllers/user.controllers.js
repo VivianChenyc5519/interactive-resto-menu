@@ -1,14 +1,24 @@
 const userService = require('../services/user.services');
 const codes = require('../utils/responseCodes');
+var exphbs = require('express-handlebars');
 
 exports.authenticateUser = async (req, res, next) => {
     try {
         const data = req.body;
+        console.log(req.body);
         const username = data.username;
         const password = data.pwd;
         const userID = await userService.authenticateUser(username, password);
         req.session.userId = userID;
         res.status(codes.OK).json({ message: "Successful Login" })
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.loginUser = async (req, res, next) => {
+    try {
+        res.render(`login`, {layout: false})
     } catch (err) {
         next(err);
     }

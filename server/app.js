@@ -1,13 +1,21 @@
 const express = require("express");
+var exphbs = require('express-handlebars');
 const menuRouter = require("./routes/menu.routes");
 const userRouter = require("./routes/user.routes");
 const session = require("express-session");
+const bodyParser = require('body-parser');
+
 
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+app.engine('handlebars', exphbs.engine());
+app.set('view engine', 'handlebars');
+
+app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
+
 // use session
 app.use(session({
   secret: 'keyboard cat',
