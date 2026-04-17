@@ -18,7 +18,9 @@ exports.authenticateUser = async (req, res, next) => {
 
 exports.loginUser = async (req, res, next) => {
     try {
-        res.render(`login`, {layout: false})
+        const language = req.session.language === "french" ? "fr" : "en";
+        const viewName = `login_${language}`;
+        res.render(viewName, { layout: false });
     } catch (err) {
         next(err);
     }

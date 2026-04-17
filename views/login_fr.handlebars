@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style_user.css">
+    <title>Commande en ligne</title>
+</head>
+<body>
+<div id="main_window">
+    <div id="login_window">
+        <h1>Commande en ligne au WAN</h1>
+        <br>
+        <div id="login_block">
+
+            <div id="login_faculty_block">
+
+                <div>
+                    <h2>Entrez vos identifiants</h2>
+
+                </div>
+
+                <form id="login_faculty_form" action="authenticate" method="post">
+
+                    <input name="username" type="text" id="username" placeholder="Username">
+                    <input name="pwd" type="text" id="pwd" placeholder="Password">
+                    <input type="submit" value="Submit" id="login_submit">
+
+                </form>
+
+            </div>
+
+            <br>
+
+            <div id="login_guest_block">
+
+                <p> Êtes-vous un invité ? <a href= index.html><button> Oui </button> </p></a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+    <button id="language_button">
+        <img src="{{language}}.png" alt="language toggle" id="lang-toggle" style="cursor:pointer"/></button>
+    <script src="language.js"></script>
+</div>
+
+</body>
+</html>

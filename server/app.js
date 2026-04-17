@@ -2,9 +2,10 @@ const express = require("express");
 var exphbs = require('express-handlebars');
 const menuRouter = require("./routes/menu.routes");
 const userRouter = require("./routes/user.routes");
+const languageRouter = require("./routes/language.routes");
 const session = require("express-session");
 const bodyParser = require('body-parser');
-
+const attachLanguage = require("./middleware/attachLanguage");
 
 
 const app = express();
@@ -29,8 +30,10 @@ app.use(session({
     maxAge: 60000
   }
 }));
+app.use(attachLanguage);
 app.use('/menu', menuRouter);
 app.use('/user',userRouter);
+app.use('/language', languageRouter);
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
