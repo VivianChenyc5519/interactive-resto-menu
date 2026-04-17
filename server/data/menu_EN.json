@@ -36,7 +36,7 @@
     },
     {
         "name": "Quiche Lorraine",
-        "image": "/resource/spaghetti.jpg",
+        "image": "/resource/quiche.jpg",
         "ingredients": [
             "eggs",
             "cream",
@@ -52,5 +52,138 @@
         "category": "main",
         "price": 8.5,
         "vegetarian": false
+    },
+    {
+        "name": "Tomato Bruschetta",
+        "image": "/resource/bruschetta.jpg",
+        "ingredients": [
+            "tomato",
+            "basil",
+            "garlic",
+            "olive oil",
+            "baguette"
+        ],
+        "allergens": [
+            "gluten"
+        ],
+        "footprint": 1.0,
+        "category": "entry",
+        "price": 7.5,
+        "vegetarian": true
+    },
+    {
+        "name": "Miso Soup",
+        "image": "/resource/miso_soup.jpg",
+        "ingredients": [
+            "miso paste",
+            "tofu",
+            "scallion",
+            "seaweed"
+        ],
+        "allergens": [
+            "soy"
+        ],
+        "footprint": 0.8,
+        "category": "entry",
+        "price": 6.0,
+        "vegetarian": true
+    },
+    {
+        "name": "Beef Bourguignon",
+        "image": "/resource/beef_bourguignon.jpg",
+        "ingredients": [
+            "beef",
+            "red wine",
+            "mushrooms",
+            "onions",
+            "carrots"
+        ],
+        "allergens": [],
+        "footprint": 6.0,
+        "category": "main",
+        "price": 21.0,
+        "vegetarian": false
+    },
+    {
+        "name": "Lemon Herb Chicken",
+        "image": "/resource/lemon_chicken.jpg",
+        "ingredients": [
+            "chicken breast",
+            "lemon",
+            "thyme",
+            "garlic"
+        ],
+        "allergens": [],
+        "footprint": 4.5,
+        "category": "main",
+        "price": 17.5,
+        "vegetarian": false
+    },
+    {
+        "name": "Fruit Salad",
+        "image": "/resource/fruit_salad.jpg",
+        "ingredients": [
+            "strawberries",
+            "kiwi",
+            "mango",
+            "blueberries",
+            "mint"
+        ],
+        "allergens": [],
+        "footprint": 0.9,
+        "category": "fruit",
+        "price": 8.0,
+        "vegetarian": true
+    },
+    {
+        "name": "Grilled Pineapple",
+        "image": "/resource/grilled_pineapple.jpg",
+        "ingredients": [
+            "pineapple",
+            "brown sugar",
+            "cinnamon"
+        ],
+        "allergens": [],
+        "footprint": 1.1,
+        "category": "fruit",
+        "price": 7.0,
+        "vegetarian": true
+    },
+    {
+        "name": "Cheese Platter",
+        "image": "/resource/cheese_platter.jpg",
+        "ingredients": [
+            "brie",
+            "cheddar",
+            "blue cheese",
+            "crackers",
+            "grapes"
+        ],
+        "allergens": [
+            "milk",
+            "gluten"
+        ],
+        "footprint": 2.8,
+        "category": "cheese",
+        "price": 14.5,
+        "vegetarian": true
+    },
+    {
+        "name": "Goat Cheese Salad",
+        "image": "/resource/goat_cheese_salad.jpg",
+        "ingredients": [
+            "goat cheese",
+            "mixed greens",
+            "walnuts",
+            "honey dressing"
+        ],
+        "allergens": [
+            "milk",
+            "nuts"
+        ],
+        "footprint": 1.7,
+        "category": "cheese",
+        "price": 12.0,
+        "vegetarian": true
     }
 ]

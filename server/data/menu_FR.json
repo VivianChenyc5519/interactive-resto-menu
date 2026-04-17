@@ -1,7 +1,7 @@
 [
     {
         "name": "Saumon grillé",
-        "image": "/data/images/spaghetti.jpg",
+        "image": "/resource/spaghetti.jpg",
         "ingredients": [
             "saumon",
             "citron",
@@ -36,7 +36,7 @@
     },
     {
         "name": "Quiche lorraine",
-        "image": "/data/images/spaghetti.jpg",
+        "image": "/resource/quiche.jpg",
         "ingredients": [
             "œufs",
             "crème",
@@ -52,5 +52,138 @@
         "category": "dessert",
         "price": 8.5,
         "vegetarian": false
+    },
+    {
+        "name": "Bruschetta tomate",
+        "image": "/resource/bruschetta.jpg",
+        "ingredients": [
+            "tomate",
+            "basilic",
+            "ail",
+            "huile d'olive",
+            "baguette"
+        ],
+        "allergens": [
+            "gluten"
+        ],
+        "footprint": 1.0,
+        "category": "entry",
+        "price": 7.5,
+        "vegetarian": true
+    },
+    {
+        "name": "Soupe miso",
+        "image": "/resource/miso_soup.jpg",
+        "ingredients": [
+            "pâte miso",
+            "tofu",
+            "ciboule",
+            "algues"
+        ],
+        "allergens": [
+            "soy"
+        ],
+        "footprint": 0.8,
+        "category": "entry",
+        "price": 6.0,
+        "vegetarian": true
+    },
+    {
+        "name": "Bœuf Bourguignon",
+        "image": "/resource/beef_bourguignon.jpg",
+        "ingredients": [
+            "bœuf",
+            "vin rouge",
+            "champignons",
+            "oignons",
+            "carottes"
+        ],
+        "allergens": [],
+        "footprint": 6.0,
+        "category": "main",
+        "price": 21.0,
+        "vegetarian": false
+    },
+    {
+        "name": "Poulet citron-herbes",
+        "image": "/resource/lemon_chicken.jpg",
+        "ingredients": [
+            "blanc de poulet",
+            "citron",
+            "thym",
+            "ail"
+        ],
+        "allergens": [],
+        "footprint": 4.5,
+        "category": "main",
+        "price": 17.5,
+        "vegetarian": false
+    },
+    {
+        "name": "Salade de fruits",
+        "image": "/resource/fruit_salad.jpg",
+        "ingredients": [
+            "fraises",
+            "kiwi",
+            "mangue",
+            "myrtilles",
+            "menthe"
+        ],
+        "allergens": [],
+        "footprint": 0.9,
+        "category": "fruit",
+        "price": 8.0,
+        "vegetarian": true
+    },
+    {
+        "name": "Ananas grillé",
+        "image": "/resource/grilled_pineapple.jpg",
+        "ingredients": [
+            "ananas",
+            "sucre brun",
+            "cannelle"
+        ],
+        "allergens": [],
+        "footprint": 1.1,
+        "category": "fruit",
+        "price": 7.0,
+        "vegetarian": true
+    },
+    {
+        "name": "Plateau de fromages",
+        "image": "/resource/cheese_platter.jpg",
+        "ingredients": [
+            "brie",
+            "cheddar",
+            "bleu",
+            "biscuits",
+            "raisins"
+        ],
+        "allergens": [
+            "milk",
+            "gluten"
+        ],
+        "footprint": 2.8,
+        "category": "cheese",
+        "price": 14.5,
+        "vegetarian": true
+    },
+    {
+        "name": "Salade de chèvre chaud",
+        "image": "/resource/goat_cheese_salad.jpg",
+        "ingredients": [
+            "fromage de chèvre",
+            "jeunes pousses",
+            "noix",
+            "miel"
+        ],
+        "allergens": [
+            "milk",
+            "nuts"
+        ],
+        "footprint": 1.7,
+        "category": "cheese",
+        "price": 12.0,
+        "vegetarian": true
     }
 ]
