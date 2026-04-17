@@ -15,6 +15,7 @@ app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
+app.use(express.static("public"));
 
 // use session
 app.use(session({
