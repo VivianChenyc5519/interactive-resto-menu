@@ -23,11 +23,11 @@
                 <div id="user_image"></div>
 
                 <div id="user_info">
-                    <h3> User : {{name}} </h3>
-                    <h3> Status : {{status}} </h3>
-                    <h3> Id : {{id}} </h3>
+                    <h3> User : {{profile.name}} </h3>
+                    <h3> Status : {{profile.role}} </h3>
+                    <h3> Id : {{profile.id}} </h3>
                         <div id="credits">
-                            <h3> Credits : {{credits}} </h3>
+                            <h3> Credit : {{profile.credit}} </h3>
                             <button>Add money</button>
                         </div>
                 </div>
@@ -35,8 +35,8 @@
             </div>
 
             <div id="last_meals_block">
-                {{#each favorites}}
-                    <h1>{{meal}}</h1>
+                {{#each profile.favorites}}
+                    <h1>{{this}}</h1>
                 {{/each}}
             </div>
 

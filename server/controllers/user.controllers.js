@@ -10,7 +10,7 @@ exports.authenticateUser = async (req, res, next) => {
         const password = data.pwd;
         const userID = await userService.authenticateUser(username, password);
         req.session.userId = userID;
-        res.status(codes.OK).json({ message: "Successful Login" })
+        res.status(codes.OK).redirect('http://localhost:3000/menu/en/all')
     } catch (err) {
         next(err);
     }
@@ -29,7 +29,8 @@ exports.loginUser = async (req, res, next) => {
 exports.getProfile = async (req, res, next) => {
     try {
         const profile = await userService.getProfile(req.session.userId);
-        res.status(codes.OK).json(profile);
+        res.status(codes.OK).json(profile)
+        res.render('user_page', {profile: profile})
     } catch (err) {
         next(err);
     }
