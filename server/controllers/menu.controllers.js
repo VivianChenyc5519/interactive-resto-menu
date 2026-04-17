@@ -4,7 +4,7 @@ exports.displayByCategoryFR = async (req, res, next) => {
     try {
         const category = req.params.category;
         const menu = await menuService.findByCategoryFR(category);
-        res.json(menu);
+        res.render('menu', {items: menu});
     } catch (err) {
         next(err);
     }
@@ -14,7 +14,7 @@ exports.displayByCategoryEN = async (req, res, next) => {
     try {
         const category = req.params.category;
         const menu = await menuService.findByCategoryEN(category);
-        res.json(menu);
+        res.render('menu', {items: menu});
     } catch (err) {
         next(err);
     }
