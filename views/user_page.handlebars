@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style_user.css">
+    <link rel="stylesheet" href="/style_user.css">
     <title>Title</title>
 </head>
 <body>
@@ -11,9 +11,9 @@
         <div id="header">
             <div id="menu_block">
                 <button><img src="resource/return-button.png"></button>
-                <a href="index.html"><button><img src="resource/home.png"></button></a>
+                <a href="/menu/en/all"><button><img src="resource/home.png"></button></a>
             </div>
-            <button id ="welcome_text"> Welcome back </button>
+            <button id ="welcome_text"> Welcome back {{profile.name}} </button>
 
         </div>
         <div id ="user_block">
@@ -36,7 +36,7 @@
 
             <div id="last_meals_block">
                 {{#each profile.favorites}}
-                    <h1>{{this}}</h1>
+                    <button>{{this}}</button>
                 {{/each}}
             </div>
 
@@ -62,7 +62,6 @@
     const lastMealsBlock = document.getElementById("last_meals_block")
     const userInfoBlock = document.getElementById("user_info_block")
 
-    welcomeText.textContent = "Welcome, " + user;
 
     function displayLastMeals(){
         var i = 0;
@@ -89,7 +88,7 @@
         }
     }
 
-    displayLastMeals()
+
 </script>
 
 </html>
