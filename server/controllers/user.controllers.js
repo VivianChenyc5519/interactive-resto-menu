@@ -29,8 +29,7 @@ exports.loginUser = async (req, res, next) => {
 exports.getProfile = async (req, res, next) => {
     try {
         const profile = await userService.getProfile(req.session.userId);
-        res.status(codes.OK).json(profile)
-        res.render('user_page', {profile: profile})
+        res.status(codes.OK).render('user_page', {profile: profile})
     } catch (err) {
         next(err);
     }
