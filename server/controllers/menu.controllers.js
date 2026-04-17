@@ -97,9 +97,9 @@ exports.getDishEN = async (req, res, next) => {
     }
 }
 
-exports.getCart = async (req, res, next) => {
+exports.getCartEN = async (req, res, next) => {
     try {
-        const response = await menuService.getCart();
+        const response = await menuService.getCartEN();
         console.log(response)
         res.render("cart", {items: response.cart});
     } catch (err) {
@@ -107,7 +107,17 @@ exports.getCart = async (req, res, next) => {
     }
 }
 
-exports.deleteCart = async (req, res, next) => {
+exports.getCartFR = async (req, res, next) => {
+    try {
+        const response = await menuService.getCartFR();
+        console.log(response)
+        res.render("cart_fr", {items: response.cart});
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.deleteCartEN = async (req, res, next) => {
     try {
         const name = req.params.name;
         const response = await menuService.deleteCartEN(name);
@@ -117,11 +127,31 @@ exports.deleteCart = async (req, res, next) => {
     }
 }
 
-exports.addCart = async (req, res, next) => {
+exports.addCartEN = async (req, res, next) => {
     try {
         const name = req.params.name;
         const response = await menuService.addCartEN(name);
         res.redirect('/menu/en/all');
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.deleteCartFR = async (req, res, next) => {
+    try {
+        const name = req.params.name;
+        const response = await menuService.deleteCartFR(name);
+        res.redirect('/menu/fr/cart');
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.addCartFR = async (req, res, next) => {
+    try {
+        const name = req.params.name;
+        const response = await menuService.addCartFR(name);
+        res.redirect('/menu/fr/all');
     } catch (err) {
         next(err);
     }

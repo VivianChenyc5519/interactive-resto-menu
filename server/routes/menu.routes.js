@@ -14,10 +14,13 @@ menuRouter.post('/fr/add', menuController.addMenuFR);
 menuRouter.post('/en/add', menuController.addMenuEN);
 menuRouter.get('/fr/name/:name', menuController.getDishFR);
 menuRouter.get('/en/name/:name', menuController.getDishEN);
-menuRouter.get('/en/cart', menuController.getCart);
+menuRouter.get('/en/cart', menuController.getCartEN);
+menuRouter.get('/fr/cart', menuController.getCartFR);
 
-menuRouter.post("/en/cart/delete/:name", menuController.deleteCart);
+menuRouter.post("/en/cart/delete/:name", menuController.deleteCartEN);
+menuRouter.post("/en/cart_add/:name", menuController.addCartEN);
 
-menuRouter.post("/en/cart_add/:name", menuController.addCart);
+menuRouter.post("/fr/cart/delete/:name", menuController.deleteCartFR);
+menuRouter.post("/fr/cart_add/:name", menuController.addCartFR);
 
 module.exports = menuRouter;
