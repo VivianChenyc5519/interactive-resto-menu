@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Wan - Item </title>
+        <link rel="stylesheet" href="/styles.css">
+        <script>
+            function plus(){
+                let val= Number(document.getElementById('quantity').value);
+                document.getElementById('quantity').value= val + 1
+            }
+            function minus(){
+                let val= Number(document.getElementById('quantity').value);
+                if (val>1){
+                    document.getElementById('quantity').value= val - 1
+                }
+            }
+        </script>
+    </head>
+    <body style="display: flex; flex-direction: column;">
+       <div id="top-bar"> 
+                <div style="display: flex;">
+                    <button class="icon-btn">
+                        <img src="/resource/return-button.png" height="75%" alt="Menu" onclick="history.back()">
+                    </button>
+                    <a class="icon-btn" href="/menu/en/all">
+                        <img src="/resource/home.png" height="75%" alt="Menu">
+                    </a>
+                 </div>
+                    <a href="user_page.html">
+                    <button class="icon-btn">
+                        Compte
+                    <img src="/resource/profile.png" height="75%" alt="Menu">
+                    </button>
+                    </a>
+                </div>
+            </div>
+
+              {{#each items}}
+            <a class="item" href="/menu/en/name/{{name}}">
+            <div class="item-photo">
+                <img src="{{image}}" alt="{{name}}">
+            </div>
+            <p>
+                {{name}} <br>
+                {{price}}€
+            </p>
+            <form action="/menu/en/cart/delete/{{name}}"method="POST">
+            <button onclick="deleteItem({{name}})">Delete</button>
+            </form>
+            </a>
+            
+            {{/each}}
+            
+        </div>
+
+    </body>
+</html>

@@ -45,6 +45,14 @@ exports.findAllFR = async () => {
     }
 }
 
+exports.getCart = async () => {
+    const cart = await menuRepository.getCartEN();
+    return {
+        status: codes.OK,
+        cart: cart 
+    }
+}
+
 exports.deleteMenuFR = async (name) => {
     const del = await menuRepository.deleteMenuFR(name);
     if (del) {
@@ -70,6 +78,33 @@ exports.deleteMenuEN = async (name) => {
         throw err;
     }
 }
+
+exports.deleteCartEN = async (name) => {
+    const del = await menuRepository.deleteCartEN(name);
+    if (del) {
+        return {
+            status: codes.OK
+        }
+    } else {
+        const err = new Error("Dish not found !");
+        err.status = codes.NOT_FOUND;
+        throw err;
+    }
+}
+
+exports.addCartEN = async (name) => {
+    const add = await menuRepository.addCartEN(name);
+    if (add) {
+        return {
+            status: codes.OK
+        }
+    } else {
+        const err = new Error("Dish not found !");
+        err.status = codes.NOT_FOUND;
+        throw err;
+    }
+}
+
 
 exports.addMenuFR = async (data) => {
     const requireFields = await menuRepository.getFields();

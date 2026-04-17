@@ -6,6 +6,20 @@ const { write } = require("fs");
 const filePathFR = path.join(__dirname, "../data/menu_FR.json");
 const filePathEN = path.join(__dirname, "../data/menu_EN.json");
 
+const cartPathEN = path.join(__dirname, "../data/cart_EN.json");
+
+async function readCartEN() {
+    try {
+        const data = await fs.readFile(cartPathEN, "utf8");
+        const menus = JSON.parse(data);
+        return menus;
+    } catch (err) {
+        err.status = codes.INTERNAL_SERVER_ERROR;
+        throw err;
+    }
+}
+
+
 async function readMenuFR() {
     try {
         const data = await fs.readFile(filePathFR, "utf8");
@@ -49,6 +63,22 @@ async function writeMenuEN(menuJSON) {
     }
 }
 
+async function writeCartEN(menuJSON) {
+    try {
+        const menu = JSON.stringify(menuJSON);
+        await fs.writeFile(cartPathEN, menu);
+        console.log("File written successfully");
+    } catch (err) {
+        err.status = codes.INTERNAL_SERVER_ERROR;
+        throw err;
+    }
+}
+
+exports.getCartEN = async (category) => {
+    const menus = await readCartEN();
+    return menus;
+}
+
 exports.findByCategoryFR = async (category) => {
     const menus = await readMenuFR();
     return menus.filter(menu => menu.category.toLowerCase() === category.toLowerCase());
@@ -78,6 +108,18 @@ exports.deleteMenuFR = async (name) => {
         return null;
     };
     await writeMenuFR(updatedMenu);
+    return true;
+}
+
+exports.deleteCartEN = async (name) => {
+    const menus = await readCartEN();
+    const prevLength = menus.length;
+    const updatedMenu = menus.filter(menu => menu.name.toLowerCase() !== name.toLowerCase());
+    if (prevLength === updatedMenu.length) {
+        console.log("Cannot find the item");
+        return null;
+    };
+    await writeCartEN(updatedMenu);
     return true;
 }
 
@@ -131,6 +173,20 @@ exports.addMenuEN = async(data) => {
     } else {
         menus.push(data);
     await writeMenuEN(menus);
+    return true;
+    }
+}
+
+exports.addCartEN = async(data) => {
+    const dish = await this.getDishByNameEN(data)
+    if (dish) { // if the dish name already exists
+        let cart = await readCartEN();
+        cart.push(dish);
+        await writeCartEN(cart);
+        return true;
+    } else {
+        return false
+    
     return true;
     }
 }

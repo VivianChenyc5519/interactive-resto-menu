@@ -96,3 +96,33 @@ exports.getDishEN = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.getCart = async (req, res, next) => {
+    try {
+        const response = await menuService.getCart();
+        console.log(response)
+        res.render("cart", {items: response.cart});
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.deleteCart = async (req, res, next) => {
+    try {
+        const name = req.params.name;
+        const response = await menuService.deleteCartEN(name);
+        res.redirect('/menu/en/cart');
+    } catch (err) {
+        next(err);
+    }
+}
+
+exports.addCart = async (req, res, next) => {
+    try {
+        const name = req.params.name;
+        const response = await menuService.addCartEN(name);
+        res.redirect('/menu/en/all');
+    } catch (err) {
+        next(err);
+    }
+}

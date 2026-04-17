@@ -28,7 +28,7 @@
                 </div>
                     <a href="user_page.html">
                     <button class="icon-btn">
-                        Welcome, XXX 
+                        Account
                     <img src="/resource/profile.png" height="75%" alt="Menu">
                     </button>
                     </a>
@@ -50,7 +50,7 @@
                     <p id="allergens"> {{ALLERGENS}} </p>
                     <p><strong>Carbon Footprint:</strong></p>
                     <p id="carbon-footprint"> {{CARBON}} </p>
-                <form id="add-to-cart">
+                <form id="add-to-cart" action="/menu/en/cart_add/{{NAME}}"method="POST">
                     <div style="display: flex;">
                     <button type="button" onclick="minus()">-</button>
                     <input type="number" readonly id="quantity" value=1 style="width: 50px; height: 30px;">

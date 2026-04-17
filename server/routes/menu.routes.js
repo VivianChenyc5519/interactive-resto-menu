@@ -14,6 +14,10 @@ menuRouter.post('/fr/add', menuController.addMenuFR);
 menuRouter.post('/en/add', menuController.addMenuEN);
 menuRouter.get('/fr/name/:name', menuController.getDishFR);
 menuRouter.get('/en/name/:name', menuController.getDishEN);
+menuRouter.get('/en/cart', menuController.getCart);
 
+menuRouter.post("/en/cart/delete/:name", menuController.deleteCart);
+
+menuRouter.post("/en/cart_add/:name", menuController.addCart);
 
 module.exports = menuRouter;
