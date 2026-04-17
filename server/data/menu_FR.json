@@ -18,7 +18,7 @@
     },
     {
         "name": "Salade César",
-        "image": "/data/images/spaghetti.jpg",
+        "image": "/resource/salad.webp",
         "ingredients": [
             "laitue romaine",
             "croûtons",

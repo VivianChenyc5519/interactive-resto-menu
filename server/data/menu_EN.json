@@ -1,7 +1,7 @@
 [
     {
-        "name": "Grilled Salmon",
-        "image": "/data/images/spaghetti.jpg",
+        "name": "Spaghetti",
+        "image": "/resource/spaghetti.jpg",
         "ingredients": [
             "salmon",
             "lemon",
@@ -18,7 +18,7 @@
     },
     {
         "name": "Caesar Salad",
-        "image": "/data/images/spaghetti.jpg",
+        "image": "/resource/salad.webp",
         "ingredients": [
             "romaine lettuce",
             "croutons",
@@ -30,13 +30,13 @@
             "gluten"
         ],
         "footprint": 1.8,
-        "category": "dessert",
+        "category": "appetizer",
         "price": 10,
         "vegetarian": true
     },
     {
         "name": "Quiche Lorraine",
-        "image": "/data/images/spaghetti.jpg",
+        "image": "/resource/spaghetti.jpg",
         "ingredients": [
             "eggs",
             "cream",
@@ -49,7 +49,7 @@
             "gluten"
         ],
         "footprint": 3.4,
-        "category": "dessert",
+        "category": "main",
         "price": 8.5,
         "vegetarian": false
     }

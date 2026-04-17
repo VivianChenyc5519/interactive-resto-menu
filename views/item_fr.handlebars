@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Wan - Item </title>
+        <link rel="stylesheet" href="/styles.css">
+        <script>
+            function plus(){
+                let val= Number(document.getElementById('quantity').value);
+                document.getElementById('quantity').value= val + 1
+            }
+            function minus(){
+                let val= Number(document.getElementById('quantity').value);
+                if (val>1){
+                    document.getElementById('quantity').value= val - 1
+                }
+            }
+        </script>
+    </head>
+    <body style="display: flex; flex-direction: column;">
+    
+        <div id="top-bar"> 
+                <div style="display: flex;">
+                    <button class="icon-btn">
+                        <img src="/resource/return-button.png" height="75%" alt="Menu" onclick="history.back()">
+                    </button>
+                    <a class="icon-btn" href="/menu/fr/all">
+                        <img src="/resource/home.png" height="75%" alt="Menu">
+                    </a>
+                </div>
+                    <a href="user_page.html">
+                    <button class="icon-btn">
+                        Welcome, XXX 
+                    <img src="/resource/profile.png" height="75%" alt="Menu">
+                    </button>
+                    </a>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; padding:10px">
+                <div style="display: flex; flex-direction: column; align-items: center;" >
+                    <div id="item-large-img">
+                        <img src="{{IMAGE}}" style="width: 100%;">
+                    </div>
+                    <p><strong>{{NAME}}</strong></p>
+                </div>
+
+                <div style="margin:50px">
+                    <p><strong>Ingrédients:</strong></p>
+                    <p id="ingredients"> {{INGREDIENTS}} </p>
+                    <p><strong>Allergènes:</strong></p>
+                    <p id="allergens"> {{ALLERGENS}} </p>
+                    <p><strong>Empreinte:</strong></p>
+                    <p id="carbon-footprint"> {{CARBON}} </p>
+                <form id="add-to-cart">
+                    <div style="display: flex;">
+                    <button type="button" onclick="minus()">-</button>
+                    <input type="number" readonly id="quantity" value=1 style="width: 50px; height: 30px;">
+                    <button type="button" onclick="plus()">+</button>
+                    </div>
+                    
+                    <input type="submit" value="Ajouter" style="width: 100px; background-color: #747272;margin: 10px;">
+                </form>
+                </div>
+                
+                
+            </div>
+
+    </body>
+</html>
