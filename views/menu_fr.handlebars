@@ -5,18 +5,18 @@
     </head>
     <body>
         <div id="nav-menu">
-            <a class="icon-btn" href="/menu/en/all">
+            <a class="icon-btn" href="/menu/fr/all">
                 <img src="/resource/home.png" height="75%" alt="Menu">
             </a>
-            <a class="nav-item" href="/menu/en/category/appetizer"> Appetizers </a>
-            <a class="nav-item" href="/menu/en/category/main"> Main courses </a>
-            <a class="nav-item" href="/menu/en/category/dessert"> Desserts </a>
-            <a class="nav-item"href="/menu/en/category/fruit"> Fruits </a>
-            <a class="nav-item"href="/menu/en/category/cheese"> Cheese </a>
-            <a class="nav-item"href="/menu/en/all"> All </a>
-            <a href="/menu/fr/all">
+            <a class="nav-item" href="/menu/fr/category/appetizer"> Entrées </a>
+            <a class="nav-item" href="/menu/fr/category/main"> Plats </a>
+            <a class="nav-item" href="/menu/fr/category/dessert"> Desserts </a>
+            <a class="nav-item"href="/menu/fr/category/fruit"> Fruits </a>
+            <a class="nav-item"href="/menu/fr/category/cheese"> Fromage </a>
+            <a class="nav-item"href="/menu/fr/all"> Tout </a>
+            <a href="/menu/en/all">
             <button class="icon-btn">
-                <img src="/resource/english.png" style="filter: drop-shadow(0px 11px 11px #7a7979 );"  height="75%" alt="Menu">
+                <img src="/resource/french.png" style="filter: drop-shadow(0px 11px 11px #7a7979 );"  height="75%" alt="Menu">
             </button>
             </a>
         </div>
@@ -28,14 +28,14 @@
                 </button>
                 <a href="user_page.html">
                     <button class="icon-btn">
-                        Welcome, XXX 
+                        Compte
                     <img src="/resource/profile.png" height="75%" alt="Menu">
                     </button>
                     </a>
             </div>
 
               {{#each items}}
-            <a class="item" href="/menu/en/name/{{name}}">
+            <a class="item" href="/menu/fr/name/{{name}}">
             <div class="item-photo">
                 <img src="{{image}}" alt="{{name}}">
             </div>
@@ -50,7 +50,7 @@
 
         <div id="cart">
                     <img src="/resource/cart.png" height="50%" alt="Menu">
-                    Cart 
+                    Panier 
                     <div id="cart-nbr">
             </div>
     </body>
