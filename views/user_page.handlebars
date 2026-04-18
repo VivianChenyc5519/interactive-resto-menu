@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/style_user.css">
     <title>Title</title>
 </head>
+
 <body>
 
     <div id="main_window">
@@ -13,10 +15,10 @@
                 <button><img src="/resource/return-button.png"></button>
                 <a href="/menu/en/all"><button><img src="/resource/home.png"></button></a>
             </div>
-            <button id ="welcome_text"> Welcome back {{profile.name}} </button>
+            <button id="welcome_text"> Welcome back {{profile.name}} </button>
 
         </div>
-        <div id ="user_block">
+        <div id="user_block">
 
             <div id="user_info_block">
 
@@ -26,23 +28,26 @@
                     <h3> User : {{profile.name}} </h3>
                     <h3> Status : {{profile.role}} </h3>
                     <h3> Id : {{profile.id}} </h3>
-                        <div id="credits">
-                            <h3> Credit : {{profile.credit}} </h3>
-                            <button>Add money</button>
-                        </div>
+                    <div id="credits">
+                        <h3> Credit : {{profile.credit}} </h3>
+                        <button>Add money</button>
+                    </div>
                 </div>
 
             </div>
 
             <div id="last_meals_block">
                 {{#each profile.favorites}}
-                    <button>{{this}}</button>
+                <button>{{this}}</button>
                 {{/each}}
             </div>
 
         </div>
 
-        <button id="language_button"><img src="/english.png"/></button>
+        <button id="language_button">
+            <img src="/resource/{{language}}.png" alt="language toggle" id="lang-toggle"
+                style="cursor:pointer" /></button>
+        <script src="/language.js"></script>
         <div></div>
 
         <div id="cart_block">cart</div>
@@ -63,12 +68,12 @@
     const userInfoBlock = document.getElementById("user_info_block")
 
 
-    function displayLastMeals(){
+    function displayLastMeals() {
         var i = 0;
         var currentLine;
-        while(i < 6 && i < lastMeals.length){
+        while (i < 6 && i < lastMeals.length) {
 
-            if(i%3 === 0) {
+            if (i % 3 === 0) {
                 currentLine = document.createElement("tr")
                 lastMealsBlock.appendChild(currentLine)
             }
