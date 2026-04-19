@@ -10,3 +10,5 @@ npm install
 ```
 npm run dev
 ``` 
+3. Access the login page using this link: http://localhost:3000/user . You can use John Doe as username and password123 as password. The password is hashed in the JSON file to provide more security.
+4. The implemented pages are: Login, main menu, product details and shopping cart. Click the icon on the bottom left to switch language.

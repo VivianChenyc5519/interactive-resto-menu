@@ -13,7 +13,14 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.engine('handlebars', exphbs.engine());
+const hbs = exphbs.create({
+  helpers: {
+    formatPrice(price) {
+      return String(price).replace('.', ',');
+    }
+  }
+});
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
@@ -23,7 +30,7 @@ app.use(cookieParser());
 // use session
 app.use(session({
   secret: 'keyboard cat',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   cookie: {
     httpOnly: true,
