@@ -5,6 +5,7 @@ const userRouter = require("./routes/user.routes");
 const languageRouter = require("./routes/language.routes");
 const session = require("express-session");
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const attachLanguage = require("./middleware/attachLanguage");
 
 
@@ -17,6 +18,7 @@ app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
 app.use(express.static("public"));
+app.use(cookieParser());
 
 // use session
 app.use(session({

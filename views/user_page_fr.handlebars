@@ -7,13 +7,13 @@
 </head>
 <body>
 
-    <a id="main_window">
+    <div id="main_window">
         <div id="header">
             <div id="menu_block">
                 <button><img src="/resource/return-button.png"></button>
                 <a href="/menu/en/all"><button><img src="/resource/home.png"></button></a>
             </div>
-            <button id ="welcome_text"> Welcome back {{profile.name}} </button>
+            <button id ="welcome_text"> Bienvenue {{profile.name}} </button>
 
         </div>
         <div id ="user_block">
@@ -23,12 +23,12 @@
                 <div id="user_image"></div>
 
                 <div id="user_info">
-                    <h3> User : {{profile.name}} </h3>
-                    <h3> Status : {{profile.role}} </h3>
+                    <h3> Utilisateur : {{profile.name}} </h3>
+                    <h3> Statut : {{profile.role}} </h3>
                     <h3> Id : {{profile.id}} </h3>
                         <div id="credits">
                             <h3> Credit : {{profile.credit}} </h3>
-                            <button>Add money</button>
+                            <button>Rajouter du crédit</button>
                         </div>
                 </div>
 
@@ -42,7 +42,7 @@
 
         </div>
 
-        <a href="/user/profile/fr"><button id="language_button">
+        <a href="/user/profile/en"><button id="language_button">
             <img src="/resource/{{language}}.png" alt="language toggle" id="lang-toggle" style="cursor:pointer"/></button>
         </a>
         <div></div>

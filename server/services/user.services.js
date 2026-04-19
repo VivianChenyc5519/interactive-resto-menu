@@ -1,5 +1,7 @@
 const userRepository = require("../repositories/user.repositories");
 const codes = require("../utils/responseCodes");
+const jwt = require("jsonwebtoken");
+const cookieParser = require('cookie-parser')
 const bcrypt = require("bcrypt");
 
 exports.authenticateUser = async (username, pwd) => {
@@ -45,4 +47,14 @@ exports.getProfile = async (userID) => {
         credit: profile.credit,
         favorites: profile.favorites
     }
+}
+
+exports.authenticate = async (req, res, next) => {
+    const cookie = req.cookies['auth'];
+
+    if(cookie == null) return res.sendStatus(401);
+
+    req.session.userId = parseInt(cookie);
+
+    next();
 }
