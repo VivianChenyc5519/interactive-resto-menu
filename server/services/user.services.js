@@ -52,7 +52,7 @@ exports.getProfile = async (userID) => {
 exports.authenticate = async (req, res, next) => {
     const cookie = req.cookies['auth'];
 
-    if(cookie == null) return res.sendStatus(401);
+    if(cookie == null) return res.render('/user/');
 
     req.session.userId = parseInt(cookie);
 
